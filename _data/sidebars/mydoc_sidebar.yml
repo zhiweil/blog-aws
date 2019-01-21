@@ -5,20 +5,7 @@ entries:
   product: Amazon Web Services
   version: 
   folders:
-      
-  - title: Overview
-    output: web, pdf
-    folderitems:
-
-    - title: Get started
-      url: /index.html
-      output: web, pdf
-      type: homepage
-
-    - title: About the author
-      url: /mydoc_about.html
-      output: web, pdf
-     
+          
   - title:
     output: pdf
     type: frontmatter
@@ -32,12 +19,25 @@ entries:
       output: pdf
       type: frontmatter
 
+  - title: Overview
+    output: web, pdf
+    folderitems:
+
+    - title: Get started
+      url: /index.html
+      output: web, pdf
+      type: homepage
+
+    - title: About the author
+      url: /mydoc_about.html
+      output: web, pdf
+      
   - title: Security & Identity
     output: web, pdf
     folderitems:
 
     - title: IAM
-      url: /index.html
+      url: /mydoc_introduction.html
       output: web, pdf
 
     - title: Cognito
