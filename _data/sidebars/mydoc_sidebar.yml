@@ -5,7 +5,7 @@ entries:
   product: Amazon Web Services
   version: 
   folders:
-
+      
   - title:
     output: pdf
     type: frontmatter
@@ -19,6 +19,27 @@ entries:
       output: pdf
       type: frontmatter
 
+  - title: Security, Identity, & Compliance
+    output: web, pdf
+    folderitems:
+
+    - title: IAM
+      url: /index.html
+      output: web, pdf
+      type: homepage
+
+    - title: Cognito
+      url: /mydoc_introduction.html
+      output: web, pdf
+
+    - title: Certificate Manager
+      url: /mydoc_supported_features.html
+      output: web, pdf
+
+    - title: Key Management Service
+      url: /mydoc_about.html
+      output: web, pdf
+      
   - title: Overview
     output: web, pdf
     folderitems:
