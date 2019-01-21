@@ -52,18 +52,30 @@ entries:
       url: /mydoc_about.html
       output: web, pdf
       
-  - title: Release Notes
+  - title: Networking & CDN
     output: web, pdf
     folderitems:
 
-    - title: 6.0 Release notes
+    - title: VPC
       url: /mydoc_release_notes_60.html
       output: web, pdf
 
-    - title: 5.0 Release notes
+    - title: CloudFront
       url: /mydoc_release_notes_50.html
       output: web, pdf
-
+      
+    - title: Route 53
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+      
+    - title: API Gateway
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+      
+    - title: Direct Connect
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+      
   - title: Installation
     output: web, pdf
     folderitems:
