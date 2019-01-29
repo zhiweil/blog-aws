@@ -18,5 +18,5 @@ bundle install
 
 ## Server Site
 ```bash
-kekyll serve
+bundle exec jekyll serve
 ```
