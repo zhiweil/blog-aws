@@ -6,22 +6,22 @@ tags: ["Networking"]
 ---
 
 # Key Concepts
-* **Virtual Private Cloud (VPC)** - is the network layer of EC2. VPC is logically isolated from the other CPC on AWS. 
+* **Virtual Private Cloud (VPC)** - is the network layer of EC2. VPC is logically isolated from the other VPC on AWS. 
 * **Subnet** - A range of IP address in VPC.
 * Multiple layers of security
     * **security group**
     * **Access Control List (ACL)**
 
-# Platforms
-* **EC2-Classic** - a single falt network that's shared with other customers.
+## Platforms
+* **EC2-Classic** - a single falt network that's shared with other AWS customers.
 * **EC2-VPC** - accounts created after 2013-12-04 support VPC only.
 
-# Default VPC
+## Default VPC
 * AWS account comes with a **defautl VPC** which has a **default subnet** in each AZ. 
-* Default VPC includes a IG, each subnets in default VPC are public subnet. EC2 instances in launched into default VPC gains 
+* Default VPC includes a IG, each subnets in default VPC are public subnet. EC2 instances in launched into default VPC gain 
 internte access by default.  
 
-# Internet Access
+## Internet Access
 * EC2 instances in public subnet are assigned a public IP and a private IP; those in private subnet are assigned a private IP only. 
 * Full IP4 Internet access can be enabled by:
     * Attaching an IG to the VPC
@@ -29,14 +29,14 @@ internte access by default.
 * To establish IP4 outbound connection from inside VPC, you can use **Network Address Translation (NAT)** device.
 * IP6 traffic is separate from IP4 traffic.
     * Full IP6 Internet access address CIDR block can be assigned to VPC, and IP6 addresses can be assigned to EC2
-    * To establish IP6 ourbound connection, you can use **egress-only IG**
+    * To establish IP6 outbound connection, you can use **egress-only IG**
     
-# Accessing Corporate or Home Network
+## Accessing Corporate or Home Network
 AWS VPC can be connected with your corporate or home network by an **IPsec AWS site-to-site VPN connection**.
 * A **virtual private gateway** is attached to VPC.
 * A **customer gateway** is connected to corporate or home network.
 
-# PrivateLink
+## PrivateLink
 PrivateLink enalbes you privately connect VPC to AWS services of:
 * the same account
 * VPC endpoint services of other AWS accounts
@@ -44,5 +44,10 @@ PrivateLink enalbes you privately connect VPC to AWS services of:
 
 Traffic between VPC and the services does not leave AWS; it is via Elastic Network Inteface (ENI) and a private IP.
 
-# VPC is PCI DSS compliance 
+## PCI DSS compliance 
 **PCI DSS** - Payment Card Industry Data Security Standard
+
+# VPC Configuration Options
+* **Endpoint Services** - create a VPC endpoint to AWS services(such as S3) in the same region.
+* **Enable Host Names** - when enabled, EC2 instances launched into this VPC will receive DNS names.
+* **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware. 
