@@ -47,7 +47,19 @@ Traffic between VPC and the services does not leave AWS; it is via Elastic Netwo
 ## PCI DSS compliance 
 **PCI DSS** - Payment Card Industry Data Security Standard
 
-# VPC Configuration Options
+# Configuration Options
+## VPC
 * **Endpoint Services** - create a VPC endpoint to AWS services(such as S3) in the same region.
 * **Enable Host Names** - when enabled, EC2 instances launched into this VPC will receive DNS names.
 * **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware. 
+
+## Subnet
+
+## Internet Gateway
+* **VPC ID** - specify VPC the IG is attached to.
+
+## Security Group
+Security group is a virtual firewall to control the traffic for its associated EC2 instances.
+* **VPC ID** - VPC this security group belongs to.
+* **Inbound Rules** - control incoming traffic to EC2 instances.
+* **Outbound Rules** - control outgoing traffic from EC2 instances.
