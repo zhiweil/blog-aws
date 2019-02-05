@@ -57,7 +57,7 @@ entries:
     folderitems:
 
     - title: VPC
-      url: /mydoc_release_notes_60.html
+      url: /mydoc_vpc.html
       output: web, pdf
 
     - title: CloudFront
@@ -76,12 +76,12 @@ entries:
       url: /mydoc_release_notes_50.html
       output: web, pdf
       
-  - title: Installation
+  - title: Keycloak
     output: web, pdf
     folderitems:
 
-    - title: About Ruby, Gems, Bundler, etc.
-      url: /mydoc_about_ruby_gems_etc.html
+    - title: Get Started
+      url: /mydoc_keycloak_get_started.html
       output: web, pdf
 
     - title: Install Jekyll on Mac
