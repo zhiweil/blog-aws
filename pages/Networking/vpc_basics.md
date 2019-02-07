@@ -1,12 +1,12 @@
 ---
 title: VPC
-tags: [VPC]
+tags: [Networking]
 keywords: AWS VPC
 last_updated: July 16, 2016
 summary: "Amazon Web Service Virtual Private Cloud (VPC) is the networking service."
 sidebar: mydoc_sidebar
-permalink: mydoc_vpc.html
-folder: mydoc
+permalink: vpc_basics.html
+folder: Networking
 ---
 
 ## Key Concepts

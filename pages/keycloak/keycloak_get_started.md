@@ -1,11 +1,11 @@
 ---
 title: Get Started with Keycloak
-tags: [getting_started, keycloak]
+tags: [keycloak]
 keywords:
 summary: "A Keycloak standalone server is started in this example for you to play with."
 sidebar: mydoc_sidebar
-permalink: mydoc_keycloak_get_started.html
-folder: mydoc
+permalink: keycloak_get_started.html
+folder: keycloak
 ---
 This example is based on the Keycloak's [Get Started Guide](https://www.keycloak.org/docs/latest/getting_started/index.html). A Keycloak
 docker container image is created by following the steps suggested in the document. 
@@ -86,6 +86,7 @@ After clicking "Save" button, you'll see several tabs to appear. To assign a pas
 you'll need to choose the "Credential" tab.
 
 #### 3.2.2 Reset Password 
+The following is a list of configuratio options to be set on the "Credentials" tab.
 ```text
 Password: password
 Password Confirmation: password
@@ -97,6 +98,3 @@ Open a browser and load the following URL.
 http://localhost:8180/auth/realms/demo/account
 ```
 The user account service console will be displayed, which is for user account management purposes.
-
-## 4. Securing JBoss Servlet Application
- 
