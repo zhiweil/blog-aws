@@ -53,12 +53,27 @@ Traffic between VPC and the services does not leave AWS; it is via Elastic Netwo
 
 ## Configuration Options
 ### VPC
+VPC spans all the AZs in a region.
 * **Endpoint Services** - create a VPC endpoint to AWS services(such as S3) in the same region.
 * **Enable Host Names** - when enabled, EC2 instances launched into this VPC will receive DNS names.
-* **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware. 
+* **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware.
+* the allowed VPC CIDR block size is between /16 and /28. 
 
 ### Subnet
-
+Each subnet must reside entirely within one AZ and cannot span AZs.
+* **public subnet** - if a subnet has route to IG.
+    * to communicate with Internet via IPv4, a EC2 instance must have a public IP or EIP.
+    * to communicate with Internet via IPv6, a EC2 instance must have a IPv6 address.
+* **private subnet** - if a subnet has not route to IG.
+* **VPN-only subnet** - doesn't have route to IG, but its traffic is routed to virtual private gateway. Currently we don't support IPv6 traffic over a site-to-site VPN connection.
+* the allowed CIDR block size is between /16 and /28.
+* five address in each subnet are reserved:
+    * 10.0.0.0 - reserved for network address
+    * 10.0.0.1 - reserved by AWS for VPC router
+    * 10.0.0.2 - reserved by AWS for DNS. VPC DNS is always the VPC base address plus 2, but AWS also reserve for each subnet base address plus 2.
+    * 10.0.0.3 - reserved by AWS for future use.
+    * 10.0.0.4 - network broadcast address, because VPC does not support broadcast so reserve it.
+    
 ### Internet Gateway
 * **VPC ID** - specify VPC the IG is attached to.
 
