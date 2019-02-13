@@ -57,7 +57,12 @@ VPC spans all the AZs in a region.
 * **Endpoint Services** - create a VPC endpoint to AWS services(such as S3) in the same region.
 * **Enable Host Names** - when enabled, EC2 instances launched into this VPC will receive DNS names.
 * **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware.
-* the allowed VPC CIDR block size is between /16 and /28. 
+* To add CIDR blocks to VPC, the following rules apply
+    * the allowed VPC CIDR block size is between /16 and /28.
+    * the range of CIDR blocks withing the same VPC should not overlap.
+    * the range of existing CIDR blocks cannot be changed.
+    * if classic link is enabled, the you can user address within 10.0.0.0/16 or 10.1.0.0/16 only. 
+     
 
 ### Subnet
 Each subnet must reside entirely within one AZ and cannot span AZs.
