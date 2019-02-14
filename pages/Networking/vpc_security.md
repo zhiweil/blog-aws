@@ -53,8 +53,27 @@ have to configure EC2 instance explicitly | apply automatically to all EC2 of a 
 * the rules of ACL is evaluated in order
 * ACL can have separate inbound and outbound rules, each rule can allow or deny traffic
 * ACL rules are stateless
+* There is a default rule, with the "*" as the rule number, cannot be removed.
 
-### Default ACL
-Default ACL of VPC allows all inbound and outbound traffic (IP v4 & v6).
-There is a default rule, with the "*" as the rule number, cannot be removed.
 
+### Ephemeral Port
+Ephemeral ports vary depending on the type of OS:
+* **Linux** - 32768 - 65535
+* **ELB** - 1024 - 65535
+* **Windows to server 2003** - 1025 - 5000
+* **Windows 2008 and later versions** - 49152-65535
+* **NAT gateway** - 1024-65535
+
+### Flog log
+Monitor inbound and outbound flows and publish to Cloudwatch or S3. 
+
+If you launch more instances into your subnet after you've created a flow log for your subnet or VPC,
+then a new log stream (for CloudWatch Logs) or log file object (for Amazon S3) is created for each new
+network interface as soon as any network traffic is recorded for that network interface.
+
+#### Limitations
+* Cannot enable flow log for EC2-Classic
+* Cannot enable flow log for a peering VPC if the VPC is not under your account
+* Cannot tag a flog log
+* Cannot change configuration of flow log after it is created
+* If an ENI has multiple addresses, flog log shows the primary address always.

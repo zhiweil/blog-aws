@@ -56,6 +56,9 @@ entries:
         - title: VPC Basics
           url: /vpc_basics.html
           output: web, pdf
+        - title: VPC Security
+          url: /vpc_security.html
+          output: web, pdf
 
   - title: Keycloak
     output: web, pdf
