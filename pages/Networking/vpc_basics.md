@@ -1,5 +1,5 @@
 ---
-title: VPC
+title: VPC Basics
 tags: [Networking]
 keywords: AWS VPC
 last_updated: July 16, 2016
@@ -57,11 +57,14 @@ VPC spans all the AZs in a region.
 * **Endpoint Services** - create a VPC endpoint to AWS services(such as S3) in the same region.
 * **Enable Host Names** - when enabled, EC2 instances launched into this VPC will receive DNS names.
 * **Hardware Tenancy** - EC2 instances launched into VPC are run on shared(default) or dedicated hardware.
-* To add CIDR blocks to VPC, the following rules apply
+* To add IPv4 CIDR blocks to VPC, the following rules apply
     * the allowed VPC CIDR block size is between /16 and /28.
     * the range of CIDR blocks withing the same VPC should not overlap.
     * the range of existing CIDR blocks cannot be changed.
     * if classic link is enabled, the you can user address within 10.0.0.0/16 or 10.1.0.0/16 only. 
+* To add IPv6 CIDR blocks to VPC, the following rules apply
+    * a single IPv6 CIDR block can be associated with VPC with a fixed prefix length of /56.
+    
      
 
 ### Subnet
@@ -71,18 +74,36 @@ Each subnet must reside entirely within one AZ and cannot span AZs.
     * to communicate with Internet via IPv6, a EC2 instance must have a IPv6 address.
 * **private subnet** - if a subnet has not route to IG.
 * **VPN-only subnet** - doesn't have route to IG, but its traffic is routed to virtual private gateway. Currently we don't support IPv6 traffic over a site-to-site VPN connection.
-* the allowed CIDR block size is between /16 and /28.
-* five address in each subnet are reserved:
-    * 10.0.0.0 - reserved for network address
-    * 10.0.0.1 - reserved by AWS for VPC router
-    * 10.0.0.2 - reserved by AWS for DNS. VPC DNS is always the VPC base address plus 2, but AWS also reserve for each subnet base address plus 2.
-    * 10.0.0.3 - reserved by AWS for future use.
-    * 10.0.0.4 - network broadcast address, because VPC does not support broadcast so reserve it.
-    
+* IPv4 subnet
+    * the allowed CIDR block size is between /16 and /28.
+    * five address in each subnet are reserved:
+        * 10.0.0.0 - reserved for network address
+        * 10.0.0.1 - reserved by AWS for VPC router
+        * 10.0.0.2 - reserved by AWS for DNS. VPC DNS is always the VPC base address plus 2, but AWS also reserve for each subnet base address plus 2.
+        * 10.0.0.3 - reserved by AWS for future use.
+        * 10.0.0.4 - network broadcast address, because VPC does not support broadcast so reserve it.
+* IPv6 subnet
+    * a subnet's IPv6 CIDR block uses a fixed prefix length of /64. 
+    * the following 5 addresses are reserved by AWS
+        * 2001:db8:1234:1a00::
+        * 2001:db8:1234:1a00::1
+        * 2001:db8:1234:1a00::2
+        * 2001:db8:1234:1a00::3
+        * 2001:db8:1234:1a00:ffff:ffff:ffff:ffff
+        
+### Subnet Routing
+* Each subnet must be associated with a routing table. 
+* Every subnet is automatically associated with the main route table of VPC.
+
 ### Internet Gateway
 * **VPC ID** - specify VPC the IG is attached to.
 
-### Security Group
+### Security
+* Security group controls inbound and outbound traffic of EC2 instances
+* Network ACL controlls inbound and outbound traffic of subnets
+* Flow log can be configured at VPC/subnet/NI level; flow logs are published to CloudWatch logs. 
+
+#### Security Group
 Security group is a virtual firewall to control the traffic for its associated EC2 instances.
 * **VPC ID** - VPC this security group belongs to.
 * **Inbound Rules** - control incoming traffic to EC2 instances.
