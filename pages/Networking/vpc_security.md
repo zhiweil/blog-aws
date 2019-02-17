@@ -64,7 +64,7 @@ Ephemeral ports vary depending on the type of OS:
 * **Windows 2008 and later versions** - 49152-65535
 * **NAT gateway** - 1024-65535
 
-### Flog log
+### Flow log
 Monitor inbound and outbound flows and publish to Cloudwatch or S3. 
 
 If you launch more instances into your subnet after you've created a flow log for your subnet or VPC,
@@ -74,6 +74,6 @@ network interface as soon as any network traffic is recorded for that network in
 #### Limitations
 * Cannot enable flow log for EC2-Classic
 * Cannot enable flow log for a peering VPC if the VPC is not under your account
-* Cannot tag a flog log
+* Cannot tag a flow log
 * Cannot change configuration of flow log after it is created
-* If an ENI has multiple addresses, flog log shows the primary address always.
+* If an ENI has multiple addresses, flow log shows the primary address always.
