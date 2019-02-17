@@ -1,5 +1,5 @@
 ---
-title: VPC
+title: VPC Security
 tags: [Networking]
 keywords: AWS VPC
 last_updated: February 14, 2019
@@ -10,13 +10,14 @@ folder: Networking
 ---
 
 ## Comparison of security group and network ACL
-Security Group | Network ACL|
----------------|------------|
-applis to EC2 instance | applies to subnet |
-supports allow rules only | supports both allow and deny rules |
-stateful, return traffic is automatically allowed | stateless, have to configure inbound and outbound separately |
-all rules are evaluated before decision | process rules in number order |
-have to configure EC2 instance explicitly | apply automatically to all EC2 of a subnet |
+
+Security Group | Network ACL| 
+---------------|------------| 
+applis to EC2 instance | applies to subnet | 
+supports allow rules only | supports both allow and deny rules | 
+stateful, return traffic is automatically allowed | stateless, have to configure inbound and outbound separately | 
+all rules are evaluated before decision | process rules in number order | 
+have to configure EC2 instance explicitly | apply automatically to all EC2 of a subnet | 
 
 ## Security group
 **Can assign up to 5 security groups to an EC2.** If no security group is specified when launching an EC2, the default security group of VPC applies.

@@ -59,6 +59,9 @@ entries:
         - title: VPC Security
           url: /vpc_security.html
           output: web, pdf
+        - title: VPC Networking Components
+          url: /vpc_networking_components.html
+          output: web, pdf
 
   - title: Keycloak
     output: web, pdf
