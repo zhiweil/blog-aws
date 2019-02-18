@@ -118,5 +118,29 @@ Timeout behaviour | RST packet is sent to source | FIN packet is sent to source|
 IP Fragmentation| support UDP, not TCP and ICMP | support TCP, UDP and ICMP|
 
 
+## DHCP Options Sets
+The Dynamic Host Configuration Protocol(DHCP) provides a standard for passing configuration to hosts on a TCP/IP 
+network. 
+
+DHCP Option Name| Description|
+-----------------|-------------|
+domain-name-servers | upto 4 domain name server IP addresses, or AmazonProvidedDNS(default). |
+domain-name | 1. AmazonProvidedDNS in us-east-1, then ec2.internal; <br>2. AmazonProvidedDNS in other region, <region>.compute.internal;<br>3. not using AmazonProvidedDNS, specify a domain name like example.com | 
+ntp-servers | upto 4 IP addresses for Network Time Protocol (NTP) |
+netbios-name-servers | upto 4 NetBIOS name servers |
+netbios-node-type | NetBIOS node type (1, 2, 4, 8). Type 2 (point-to-point or P-node is recommended). Broadcast and multicase are not supported yet |
+
+### Amazon DNS server
+* AmazonProvidedDNS runs on **VPC_base_address + 2**. If there exist more than one CIDR blocks, DNS runs in the primary block.
+* Amazon DNS server is used to resolve names defined in a private hosted zone in Route53.
+* services use Hadoop framework (like EMR) resolve their FQDN differently, if domain-name-servers is set to a custom value, these
+service might fail. 
+* Amazon's DNS server is running at 169.254.169.253. 
+
+## Changing DHCP options
+* after DHCP options are created and assigned to VPC, it cannot be changed, you'll have create a new one.
+* you can configure VPC to use no DHCP options. 
+* can only associate one set of DHCP options with a VPC at a time. Delete VPC also delete associated DHCP options set.
+
 
 
