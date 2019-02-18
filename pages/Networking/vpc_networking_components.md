@@ -137,10 +137,28 @@ netbios-node-type | NetBIOS node type (1, 2, 4, 8). Type 2 (point-to-point or P-
 service might fail. 
 * Amazon's DNS server is running at 169.254.169.253. 
 
-## Changing DHCP options
+### Changing DHCP options
 * after DHCP options are created and assigned to VPC, it cannot be changed, you'll have create a new one.
 * you can configure VPC to use no DHCP options. 
 * can only associate one set of DHCP options with a VPC at a time. Delete VPC also delete associated DHCP options set.
 
+## Using DNS with VPC
+**DNS does not work with IPv6 addresses**, 
+* there are two options on VPC:
+    * enableDnsHostnames - whether EC2 instances receive public DNS names, this works only when **enableDnsSupport** is also set to true.
+    * enableDnsSupport - DNS can be translated via 169.254.169.253 or **VPC base address + 2**.
+* Each Amazon EC2 instance limits the number of packets that can be sent to the Amazon-provided DNS
+  server to a **maximum of 1024 packets per second per network interface**. This limit cannot be increased.
+* If you use custom DNS domain names defined in a private hosted zone in Amazon Route 53, the
+  enableDnsHostnames and enableDnsSupport attributes must be set to true.
 
+## VPC Peering
+You can set VPC peering between:
+* you own VPCs
+* VPC in another AWS account
+* VPC in a different region
 
+No special hardware is needed to setup VPC peering. No Single point of failure and no bandwidth bottleneck. 
+
+** Elastic IP
+ 
