@@ -50,6 +50,7 @@ entries:
         - title: Useful Resources
           url: /iam_resources.html
           output: web, pdf
+
       - title: VPC
         output: web, pdf
         subfolderitems:
@@ -61,6 +62,13 @@ entries:
           output: web, pdf
         - title: VPC Networking Components
           url: /vpc_networking_components.html
+          output: web, pdf
+
+      - title: EKS
+        output: web, pdf
+        subfolderitems:
+        - title: EKS Basics
+          url: /eks_basics.html
           output: web, pdf
 
   - title: Keycloak
