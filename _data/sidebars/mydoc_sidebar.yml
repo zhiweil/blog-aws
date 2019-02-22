@@ -75,6 +75,10 @@ entries:
           url: /eks_cluster_node.html
           output: web, pdf
 
+        - title: EKS References
+          url: /eks_references.html
+          output: web, pdf
+
   - title: Keycloak
     output: web, pdf
     folderitems:
