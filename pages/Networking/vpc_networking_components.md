@@ -160,5 +160,9 @@ You can set VPC peering between:
 
 No special hardware is needed to setup VPC peering. No Single point of failure and no bandwidth bottleneck. 
 
-** Elastic IP
+## Elastic IP
+* Elastic IP is assigned to ENI. Moving EIP from one ENI to another ENI will move all the attributes across.
+* Elastic IP does not support IPv6.
+* Elastic IP can be tagged, but cost allocation tags are not supported.
+
  
