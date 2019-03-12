@@ -111,3 +111,21 @@ entries:
           url: /k8s_basics.html
           output: web, pdf
 
+  - title: Pythgon
+    output: web, pdf
+    folderitems:
+
+    - title: Virtual Environment
+      output: web, pdf
+      url: /python_virtualenv.html
+      output: web, pdf
+
+    - title: Overview
+      output: web, pdf
+      url: /python_overview.html
+      output: web, pdf
+
+    - title: Built-in Functions
+      output: web, pdf
+      url: /python_built-in-functions.html
+      output: web, pdf
