@@ -90,3 +90,24 @@ entries:
     - title: Secure Red Hat EAP Application
       url: /keycloak_secure_eap_app.html
       output: web, pdf
+
+    - title: Docker
+      output: web, pdf
+      subfolders:
+
+  - title: Docker
+    output: web, pdf
+    folderitems:
+
+    - title: Docker Overview
+      output: web, pdf
+      url: /docker_overview.html
+      subfolders:
+
+      - title: Kubernetes
+        output: web
+        subfolderitems:
+        - title: Kubernetes Basics
+          url: /k8s_basics.html
+          output: web, pdf
+
