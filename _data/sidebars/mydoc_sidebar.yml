@@ -110,6 +110,9 @@ entries:
         - title: Kubernetes Basics
           url: /k8s_basics.html
           output: web, pdf
+        - title: Kubernetes Scaling
+          url: /k8s_scaling.html
+          output: web, pdf
 
   - title: Pythgon
     output: web, pdf
