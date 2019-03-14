@@ -116,8 +116,11 @@ entries:
         - title: Kubernetes Scaling
           url: /k8s_scaling.html
           output: web, pdf
+        - title: Deployment
+          url: /k8s_deployment.html
+          output: web, pdf
 
-  - title: Pythgon
+  - title: Python
     output: web, pdf
     folderitems:
 
