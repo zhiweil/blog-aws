@@ -45,10 +45,10 @@ kubectl describe depolyments deployment-name
 Instead of creating a NodePort service for a single replica, multiple replicas will need to create a
 LoadBalancer service by the following command.
 ```bash
-kubectl expose deployment deployment-name --type=LoadBalancer --port=8080 --remote-port=8080 --name service-name
+kubectl expose deployment deployment-name --type=LoadBalancer --port=8080 --target-port=8080 --name service-name
 ```
 * **--port=8080** - this define the port exposed by load balancer.
-* **--remote-port=8080** - this defines the port exposed by replicas.
+* **--target-port=8080** - this defines the port exposed by replicas.
 
 The new LoadBalancer service details, such as the IP addresses assigned to LB, can be checked by:
 ```bash
