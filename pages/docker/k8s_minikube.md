@@ -19,7 +19,7 @@ If kubectl is not installed yet, please run the following commands.
 ```bash
 curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x kubectl
-mov kubectl /usr/local/bin # or whatever location can be found in $PATH
+mv kubectl /usr/local/bin # or whatever location can be found in $PATH
 ```
 ## Configuration
 ```bash
