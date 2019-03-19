@@ -119,6 +119,9 @@ entries:
         - title: Deployment
           url: /k8s_deployment.html
           output: web, pdf
+        - title: Label and Selector
+          url: /k8s_label_and_selector.html
+          output: web, pdf
 
   - title: Python
     output: web, pdf
@@ -138,3 +141,12 @@ entries:
       output: web, pdf
       url: /python_built-in-functions.html
       output: web, pdf
+
+  - title: Linux Shell Commands
+    output: web, pdf
+    folderitems:
+
+      - title: awk and gawk
+        output: web, pdf
+        url: /shell_awk.html
+        output: web, pdf
