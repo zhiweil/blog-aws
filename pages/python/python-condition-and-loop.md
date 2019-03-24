@@ -61,3 +61,4 @@ else:
 ## Change loop flow
 * break - quite a loop
 * continue - skip the rest of a loop flow and do the next iteration. 
+* pass - do nothing
