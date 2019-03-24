@@ -127,19 +127,34 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: Virtual Environment
-      output: web, pdf
-      url: /python_virtualenv.html
-      output: web, pdf
-
     - title: Overview
       output: web, pdf
       url: /python_overview.html
       output: web, pdf
 
+    - title: Virtual Environment
+      output: web, pdf
+      url: /python_virtualenv.html
+      output: web, pdf
+
     - title: Built-in Functions
       output: web, pdf
       url: /python_built-in-functions.html
+      output: web, pdf
+
+    - title: String
+      output: web, pdf
+      url: /python-string.html
+      output: web, pdf
+
+    - title: Arithmetic Operations
+      output: web, pdf
+      url: /python-arithmetic.html
+      output: web, pdf
+
+    - title: Condition and Loop
+      output: web, pdf
+      url: /python-conditional-and-loop.html
       output: web, pdf
 
   - title: Linux Shell Commands
