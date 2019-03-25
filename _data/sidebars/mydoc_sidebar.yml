@@ -157,6 +157,11 @@ entries:
       url: /python-conditional-and-loop.html
       output: web, pdf
 
+    - title: Collections
+      output: web, pdf
+      url: /python-collections.html
+      output: web, pdf
+
   - title: Linux Shell Commands
     output: web, pdf
     folderitems:
