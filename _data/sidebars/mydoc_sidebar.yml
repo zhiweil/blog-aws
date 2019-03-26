@@ -122,6 +122,12 @@ entries:
         - title: Label and Selector
           url: /k8s_label_and_selector.html
           output: web, pdf
+        - title: Health Check
+          url: /k8s_health_check.html
+          output: web, pdf
+        - title: Networking
+          url: /k8s_networking.html
+          output: web, pdf
 
   - title: Python
     output: web, pdf
