@@ -52,3 +52,43 @@ matrix[0][0]
 * sort() - sort a list in ascending order. This method changes the original list.
 * reverse() - this reverses a list in place.
 * copy() - this gives a copy of a list.
+
+## Tuple
+Tuple is like list, but it is immutable.
+* parenthesis are used to define tuple. 
+* methods: 
+    * count(element) - count the times of occurrence of an element in tuple.
+    * index(element) - return the index of the first occurrence of element.
+    
+## unpacking 
+```python
+tuple = (1, 2, 3)
+
+# unpacking a tuple
+# the following is the same as x = typle[0], y = typle[1], z = tuple[2]
+x, y, z = tuple
+```
+Unpacking can be applied to tuple and list.
+
+## Dictionary
+### Basics
+Dictionary is key value pair. Dictionary is defined by curly braces. It is very much like JSON definition.
+```python
+people = {
+    "name": "Zhiwei Liu",
+    "age": 50, 
+    "isOld": True
+}
+
+# to reference a dictionary entry
+people["name"]
+
+# python returns "None" if key does not exist
+people["no-such-key"]
+
+# use the get() method of dictionary, you can specify the default value if key does not exit
+people.get("no-such-key", "default-value")
+
+# use assignment operator to change value or put a new key-value pair into dictionary
+people["new-key"] = "new-key's value"
+```
