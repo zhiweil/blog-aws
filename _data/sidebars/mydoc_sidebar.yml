@@ -178,6 +178,11 @@ entries:
       url: /python-exception.html
       output: web, pdf
 
+    - title: Class
+      output: web, pdf
+      url: /python-class.html
+      output: web, pdf
+
   - title: Linux Shell Commands
     output: web, pdf
     folderitems:
