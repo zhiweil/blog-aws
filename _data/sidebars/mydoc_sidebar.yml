@@ -168,6 +168,11 @@ entries:
       url: /python-collections.html
       output: web, pdf
 
+    - title: Function
+      output: web, pdf
+      url: /python-function.html
+      output: web, pdf
+
   - title: Linux Shell Commands
     output: web, pdf
     folderitems:
