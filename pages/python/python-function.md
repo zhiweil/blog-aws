@@ -47,3 +47,4 @@ function_name(param1 = arg1, param2 = arg2)
 ## return 
 * The keyword "return" is used to return value from function.
 * If a function does not return anything, you'll get "None" as return value.
+* it is allowed to return multiple values, python will interpret these values as a tuple automatically. 

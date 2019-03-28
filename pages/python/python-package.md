@@ -16,7 +16,8 @@ folder: python
 ## Reference Package
 * you can import a module of a package by
     ```python
-    import mypackage.mymodule
+    # give a module an alias "mm"
+    import mypackage.mymodule as mm
     
     # to call a function, you'll need to use FQDN like
     mypackage.mymodule.myfunc()
