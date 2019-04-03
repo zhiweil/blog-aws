@@ -53,6 +53,36 @@ matrix[0][0]
 * reverse() - this reverses a list in place.
 * copy() - this gives a copy of a list.
 
+### List Comprehensions
+List comprehensions create a new list out of other collections. List comprehension expressions are 
+enclosed by square backets, which is the representation of python list.
+
+* [expr for val in collection]
+* [expr for val in collection if <test>]
+* [expr for val in collection if <test1> and <test2>]
+* [expr for val in collection1 for val2 in collection2]
+```python
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# square of all numbers
+squares = [val**2 for val in nums]
+print(squares)
+
+# square of all odd numbers
+square_odds = [val**2 for val in nums if val%2]
+print(square_odds)
+
+# square of all even numbers and the numbers are greater than 5
+square_evens = [val**2 for val in nums if not val%2 and val > 5]
+print(square_evens)
+
+# multiply of two lists
+nums_1 = [3, 2, 1]
+nums_2 = [4, 5, 6]
+multiplied_nums = [val1*val2 for val1 in nums_1 for val2 in nums_2]
+print(multiplied_nums)
+```
+
 ## Tuple
 Tuple is like list, but it is immutable.
 * parenthesis are used to define tuple. 
@@ -70,6 +100,33 @@ x, y, z = tuple
 ```
 Unpacking can be applied to tuple and list.
 
+## Set
+### Basics
+Set is builtin data type in python, which is an unsorted list of unique items. 
+```python
+# create set by constructor
+myset = set()
+myset.add(10)
+myset.add(False)
+myset.add('word')
+print(myset)
+
+# create set by pre-populated list
+myset = set([10, False, 'word'])
+
+# create set by assigning values
+myset = {10, False, 'word'}
+print(myset)
+```
+
+### Methods
+* add(element) - add an element to set.
+* remove(element) - remove an element from set. An exception is thrown if element does not exist.
+* discard(element) - remove an element from set. No exception is thrown if element does not exist.
+* clean() - remove all elements from set.
+* intersetion(setb) - common elements from both sets.
+* union(setb) - all elements from both sets.
+* 
 ## Dictionary
 ### Basics
 Dictionary is key value pair. Dictionary is defined by curly braces. It is very much like JSON definition.
