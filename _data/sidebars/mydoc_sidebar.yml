@@ -79,6 +79,13 @@ entries:
           url: /eks_references.html
           output: web, pdf
 
+      - title: DevOps Professional
+        output: web, pdf
+        subfolderitems:
+          - title: CI/CD
+            url: /devops_cicd.html
+            output: web, pdf
+
   - title: Keycloak
     output: web, pdf
     folderitems:
