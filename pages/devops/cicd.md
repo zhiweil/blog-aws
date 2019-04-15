@@ -42,4 +42,29 @@ In AWS, CD tools can utilise the following services in integration and deploymen
 
 ## Deployment Types
 ### Single Target Deployment
-This is not being widely used these days. 
+* This is not being widely used these days. 
+* The deployment involves a single server (non-HA).
+* For small development teams.
+
+When there is a new version of application, the deployment happens. The deployment has the following drawbacks:
+* Brief outage occurs when new version is being installed.
+* There is no secondary server, so testing opportunity is limited. 
+* Rollback involves removing the old version and installing the previous one. 
+
+### All-at-once deployment
+* Deployment happens in one step (same as single target deployment).
+* Multiple targets.
+* More complicated than single target deployment, so orchestration is needed. 
+
+All-at-one deployment shares the same drawbacks with single target deployment: no ability to test, 
+short period of outage and less than ideal rollback.
+
+**This method may be used with non-critial applications, with 5 to 10 targets.**
+
+### Minimum in-service deployment
+The minimal (optimal) number of targets can be specified with orchestration server. Orchestration 
+sever makes sure these targets are always available in deployment. 
+
+The deployment follows the following process:
+* 
+
