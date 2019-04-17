@@ -66,5 +66,21 @@ The minimal (optimal) number of targets can be specified with orchestration serv
 sever makes sure these targets are always available in deployment. 
 
 The deployment follows the following process:
-* 
+* **Initial Build Stage** - all targets are running the old version, the orchestration server is told the minimum number 
+    of running targets it should keep (in AWS, this might be one instance in each AZ). 
+* **Deployment Stage #1** - the minimum number of targets keep running the old version; all the other targets are upgrading.
+* **Deployment Stage #2** - After upgrading some targets, orchestration server still keeps running the minimum number
+    of targets and upgrading the ones running the old versions.  
+* **Deployment Complete** - All targets have been updated to the new version.
+
+The features:
+* Deployment happens in multiple stages.
+* Deployment happens to as many targets as possible while maintaining the minimum in-service targets. 
+* A few moving parts, orchestration and health checks are required. 
+* Allows automated testing, deployment targets are assessed and tested prior to continuing. 
+* Generally no downtime. 
+* Often quicker and less stages than rolling deployment. 
+
+### Rolling deployment
+This deployment allows you to control the stages of the deployment. 
 
