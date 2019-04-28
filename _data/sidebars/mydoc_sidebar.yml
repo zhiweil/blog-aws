@@ -85,6 +85,15 @@ entries:
           - title: CI/CD
             url: /devops_cicd.html
             output: web, pdf
+          - title: CloudFormation
+            url: /devops_cloudformation.html
+            output: web, pdf
+          - title: OpsWorks
+            url: /devops_opsworks.html
+            output: web, pdf
+          - title: Elastic Beanstalk
+            url: /devops_elasticbeanstalk.html
+            output: web, pdf
 
   - title: Keycloak
     output: web, pdf
