@@ -3,32 +3,30 @@ title: Elastic Beanstalk
 tags: [devops-exam]
 keywords: AWS Elastic Beanstalk
 last_updated: April 27, 2019
-summary: "With Elastic Beanstalk, you can deploy, monitor, and scale and application quickly."
+summary: "Elastic Beanstalk provides developers or end users with the ability to provision application infrastructure in an almost transparent way."
 sidebar: mydoc_sidebar
 permalink: devops_elasticbeanstalk.html
 folder: devops
 ---
-
-Elastic Beanstalk provide3s developers or end users with the ability to provision application 
-infrastructure in an almost transparent way.
 
 Elastic Beanstalk focus on components and performance, not configuration and specification. It
 attempts to remove, or significantly simplify infrastructure management, allowing applications
 to be deployed into infrastructure environments easily.
 
 ## Key architecture components
-* Application - the high level structure in beanstalk. Either you entire application is one EB application, or 
-    each logical component of your application, can be a EB application or a EB environment within an application.
-* Application can have multiple environments. Environment can be development stages such as Prod, Staging, Dev, V1, V2 
-    or functional type such as front-end, back-end.
+* **Application** - the high level structure in beanstalk. 
+    * Either you entire application is one EB application 
+    * or each logical component of your application, can be a EB application or a EB environment within an application
+    * Each application has its own URL, the URL can be switched among different environments (blue-green deployment). 
+* Application can have multiple **environments**. 
+    * Environment can be development stages such as Prod, Staging, Dev, V1, V2 
+        or functional type such as front-end, back-end.
     * Environments are either single instance or scalable.
     * Environments are either web server environments or worker environments.
-* Application versions are unique packages which represent versions of applications. 
+* **Application versions** are unique packages which represent versions of applications. 
     * One application can have multiple application versions. 
     * Application versions can be deployed to environments within an application.
-* An application is uploaded to EB as an application bundle(ZIP file).
-
-Each application has its own URL, the URL can be switched among different environments (blue-green deployment). 
+    * An application (version) is uploaded to EB as an **application bundle(ZIP file)**.
 
 ## Environment types
 * **Web server environment** - Web servers running inside EC2 instances which are running inside a auto-scaling group and behind a LB. Web servers might 
@@ -36,7 +34,7 @@ be communicating with worker environment via SQS queues (messaging), the two env
 SQS queues.
 * **Worker environment** - Rather than having LB, this environment is auto-scaled via cloud watch alarms. So this environment is a multi-server environment. 
 Worker services run inside EC2 instances, which run inside auto-scaling groups. This environment usually scales by the SQS queues, them more messages in the 
-queues, the more instances will be created. The queues are handled by a EB deamon, so you don't need to care about setting the parameters of queues (such as 
+queues, the more instances will be created. The queues are handled by a EB daemon, so you don't need to care about setting the parameters of queues (such as 
 invisibility timeout). 
 
 ## Supported Environments
@@ -142,7 +140,7 @@ Docker can be used to support the environments that are not yet supported by AWS
 * Dockerfile - contains the structure of docker container. Only need this for build a custom container on each EC2 instance.
     * source image
     * how the elements of source bundle are injected into the image
-    * how to ports on which the container listens via the EXPOSE directive
+    * how to expose ports on which the container listens via the EXPOSE directive
 * Dockerrun.aws.json - EB specific file. 
     * defines how to deploy a docker as a EB application
     * defines the ports the container is listening on, allowing EB to map these to standard ports
