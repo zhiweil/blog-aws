@@ -27,8 +27,9 @@ power and customization than Elastic Beanstalk.
     
     * Load balancing
     * auto-scaling
-    * auto-healing   
-*Opsworks supports lifecycle events. (this is very important to the exam)
+    * auto-healing  
+     
+*OpsWorks supports lifecycle events. (this is very important for the exam)
     
 **So OpsWorks is the union of CHEF and AWS backend services.**
 
@@ -61,7 +62,7 @@ Layers are logical grouping of instances, in OpsWorks they share the common conf
 
 The "Setting" tab of layer include:
 * Name & short name
-* Instance shutdown time
+* Instance shutdown timeout - in seconds, the shutdown recipes are allowed to run.
 * Auto-healing enabled (default yes)
 
 The "Recipes" tab of layer include:
@@ -78,7 +79,7 @@ The "EBS volumes" tab of layer include:
 
 The "Security Group" tab of layer include:
 * Security groups
-* EC2 instance profile
+* EC2 instance profile (role)
 
 There are 3 high level layer types:
 * OpsWorks - a traditional layer allowing rich feature sets via recipes. 
@@ -94,7 +95,7 @@ OpsWorks has five events which occur during the lifetime of an instance. Some ev
 When an event occurs, it runs the recipes assigned to the event. Each layer has its own recipes for each event.
 
 * Setup - Event occurs when an instance has finished booting. This is generally used for instance setup.
-* Configure - Enters or Leaves online; associate or disassociate with EIP; attach or detach LB to a layer.
+* Configure - Enters or Leaves online state; associate or disassociate with EIP; attach or detach LB to a layer.
 * Deploy - Event occurs when you run the deploy command on an instance.
 * Undeploy - Event occurs when you delete an application or run undeploy command.
 * Shutdown - Event occurs when an instance is shutdown but before the instance is terminated. It allows cleanup.
@@ -106,7 +107,7 @@ Instances can be added in two locations:
 
 There are 3 high level instance types:
 * 24/7 instances - provisioned manually, started and stopped manually via CLI/API.
-* Time-based instances - initially privisioned, and configured to power on/off at certain times during the day.
+* Time-based instances - initially provisioned, and configured to power on/off at certain times during the day.
 * Load-based instances - initially provisioned, and configured to automatically power on/off based on configurable criteria. 
 
 ### 24/7 instances
@@ -152,6 +153,7 @@ Deploying an application in OpsWorks takes the following steps:
 The create-deployment command has two functions:
 * create application deployments
 * It allows stack level commands to be executed against stack.
+
 **The usage of this command is very important in the exam, it provides far more functionality not limited to deployment.**
 
 ### Syntax
@@ -294,7 +296,7 @@ end
     * instance terminated
     * root volume deleted
     * launch new instance - same hostname, config, layer membership
-    * reattach any EBS voloumes that were attached when the instance was terminated.
+    * reattach any EBS volumes that were attached when the instance was terminated.
     * Assign a new public and private IP
     * if applicable, re-associates any EIP
     
@@ -305,4 +307,4 @@ end
     to start with a 'start_failed' error. This usually happens for EBS-backed instances.
 * This will require manual intervention - either add new instance, or terminate the instance and allow a full re-provision.
 * Auto-healing won't upgrade the OS of instance - even if the default OS is changed at a stack level. an auto-healed instance
-    will reutrn with the same OS as before the heal.
+    will return with the same OS as before the heal.
