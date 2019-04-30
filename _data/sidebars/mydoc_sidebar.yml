@@ -94,6 +94,9 @@ entries:
           - title: Elastic Beanstalk
             url: /devops_elasticbeanstalk.html
             output: web, pdf
+          - title: CloudWatch
+            url: /devops_cloudwatch.html
+            output: web, pdf
 
   - title: Keycloak
     output: web, pdf
