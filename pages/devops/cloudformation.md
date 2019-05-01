@@ -36,7 +36,8 @@ There are nine parts in cloudformation template:
 * CloudFormation can run scripts within instances (EC2). 
 * CloudFormaiton can expand files within instances. 
 * Each stack has a stack ID, a template can be applied as many times as you want. 
-    Each stack and associated resources are unique. 
+    Each stack and associated resources are unique. If resource names(IDs) are ignored in template, 
+    cloudformaiton allocates them for you.
 * The events during stack creation, deletion and update can be configured, meaning 
     cloudformation can be as strict or relaxed; as controlled or as messy as you want. 
     
@@ -46,7 +47,7 @@ There are nine parts in cloudformation template:
 * Easily create test environment.
 * Define environment once and deploy it to many regions. 
 * Manage infrastructure configuration by software development versioning and testing concept.
-**A template should be designed to be deployed to one or more regions and as many times as you want.**
+* **A template should be designed to be deployed to one or more regions and as many times as you want.**
 
 ## Parameters
 Pass one or more values into template. 
@@ -72,7 +73,7 @@ In absence of parameters, cloudformation picks generated names for elements, all
     
 ## Resources
 * The only mandatory part in cloudformation. It has the following elements:
-* Local ID (friendly name) and type must be specified.
+* Logical ID (friendly name) and type must be specified.
 * "properties" is a JSON object which contains the attributes of a AWS resource. 
 * If name is not specified, cloudformation will deduce a name out of the name of the stack. Not specifying name for 
     resources is one the benefits of cloudformation which allows template reuse.
@@ -83,7 +84,7 @@ In absence of parameters, cloudformation picks generated names for elements, all
     }
     ```
 
-## Output
+## Outputs
 Outputs are used to record the result of resources allocation of cloudformation result for:
 * Display on UI/CLI.
 * To be used by parent stack.
