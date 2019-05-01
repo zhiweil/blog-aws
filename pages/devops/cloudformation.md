@@ -161,7 +161,7 @@ And some conditional functions:
     ```
 * Fn::If - implements the "IF-ELSE" logic. 
    ```text
-   "InstanceType": { "Fn:If": ["production", "t2.large", "t2.small"] }
+   "InstanceType": { "Fn:If": ["isProduction", "t2.large", "t2.small"] }
    ```
    
 **Please read the Intrinsic functions section of AWS cloudformation user guide.**
@@ -171,7 +171,7 @@ And some conditional functions:
 * Template syntax check
 * Stack name & Parameter verification & Ingestion
 * Cloudformation template processing & Stack creation
-    * Resource ordering **by the DependsOn" attributes of resources. The attribute references to another 
+    * Resource ordering **by the DependsOn" attributes of resources**. The attribute references to another 
         resource in the template but does not need to use the "Ref" function. The "DependsOn" can reference
         to multiple objects.
     * resource generation
@@ -245,7 +245,7 @@ affecting your wider environment. This might be used in the following scenarios:
     ```text
     AWS::EC2::Instance
         AvailabilityZone -> replacement as insances cannot be moved to another AZ.
-        EbsOptimiced -> some interruption (EBS backed), as instance need to shut down and restart again.
+        EbsOptimized -> some interruption (EBS backed), as instance need to shut down and restart again.
         ImageId -> replacement
         InstanceType -> some interruption (EBS backed), as this needs to shut down, change and restart.
     AWS::DynamoDB::Table
@@ -294,7 +294,7 @@ The following three mechanisms accomplish the same task - when a resource should
 * Wait condition
 * Wait condition handler
 
-Wait condition and wait condition policy can be used in much complex scenarios. 
+Wait condition and wait condition handler can be used in much complex scenarios. 
 
 ### Creation Policy
 There are two components for creation policy.

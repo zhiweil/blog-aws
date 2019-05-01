@@ -22,7 +22,7 @@ the higher the chance for this to cause problems in integration.
     * Jenkins
     * Go
     * Teamcity
-    * AWS allows you to run these tools on EC3, the spot pricing of AWs can reduce your CI cost.
+    * AWS allows you to run these tools on EC2, the spot pricing of AWs can reduce your CI cost.
 
 **CD** - This is a work-flow based process which takes the output of CI (a tested software) and automatically
     deploy it to a QA, pre-production (staging) and production environments. Most of the CI servers 
@@ -132,7 +132,7 @@ AB testing adjusts this, by sending a percentage of traffic to Blue and a percen
 ### Why AB testing?
 * It separates different versions of your code, which may have different reliability or performance. 
 * It allows a gradual performance/stability/health analysis. 
-* It allows a nwe feature to be tested with a subset of visitors. 
+* It allows a new feature to be tested with a subset of visitors. 
 * If bugs are detected, rollback can be enacted quickly and the damage caused by the failed update is minimized. 
 
 The end goal of AB testing might not be migration, it is mainly for testing. 
@@ -185,7 +185,7 @@ Docker achieves much higher density, and it is much faster to start.
 * Isolation - performance or stability issues with APP A in container A, won't impact APP B in container B. 
 * Resource scheduling is at micro level. 
 * Extreme code portability.
-* Micro-serivces.
+* Micro-services.
 
 ### Docker Components
 * Docker image
