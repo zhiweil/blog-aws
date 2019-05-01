@@ -33,3 +33,18 @@ aws cloudwatch put-metric-data --metric-name CurrentUnixTime --namespace "myns"
 * Based on parameters you specify
 * Against metrics you have in use
 
+Alarms are send to the SNS for notification; to Auto-scaling group for action such as scale up/down.
+
+### Notes
+* Alarm period should be greater than or equal to metric frequency. 
+    * Basic monitoring give you frequency of 5 minutes.
+    * Detailed monitoring give you frequency of 1 minute.
+* Alarms can't invoke an action because they are in a state, the state must change.
+* Alarms actions must be in the same region as the alarm.
+* Some AWS resources don't send metric date to CloudWatch under certain conditions (insufficient data state).
+    For example, when EBS volumes are not attached to EC2.
+
+### State
+* OK - metric data is within the threshold defined.
+* ALARM - metric data is outside the threshold defined.
+* INSUFFICIENT_DATA - either metric does not have data or the data is no enough to determine alarm state.
