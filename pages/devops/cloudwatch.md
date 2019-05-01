@@ -18,4 +18,18 @@ data for more than two weeks you'll need to do something special.
 * To be able to view the "EC2 Metrics", you'll need to enable "Detailed monitoring" on EC2 instances.
 * You can aggregate metrics by auto-scaling group.
 
-** Read the entire developer guide!**
+**Read the entire developer guide!**
+
+## Custom Metrics
+The following example create a metric for current utc epoch time under namespace "myns".
+```bash
+aws cloudwatch put-metric-data --metric-name CurrentUnixTime --namespace "myns"  
+    --value `date +%s` 
+    --timestamp `date --utc "+%FT%T.%N" | sed -r 's/[[:digit:]]{6}$/Z'`
+``` 
+
+## Alarms
+* Initiate actions on your behalf
+* Based on parameters you specify
+* Against metrics you have in use
+
