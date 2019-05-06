@@ -192,4 +192,56 @@ These services incoude:
 **Please refer to the "Subscriptions" section of CloudWatch Developer Guide for more details.**
 
 ### Example
+* create a kinesis stream & view its details & record stream ARN
+```bash
+aws kinesis create-stream --stream-name "AlarmLogs" --shard-count 1
+aws kinesis describe-stream --stream-name "AlarmLogs"
+```
 
+* The following policy allows AWS CloudWatch logs to assume role for kinesis 
+```json
+{
+  "Statement": {
+    "Effect": "Allow",
+    "Principal": {"Service":  "logs.ap-southeast-2.amazonaws.com"},
+    "Action": "sts:AssumeRole"
+  }
+}
+```
+```bash
+aws iam create-role --role-name "CWLtoKinesisRole"     
+    --assume-role-policy-document file://path/to/policy.json
+```
+
+* Create permissions for EC2
+```json
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "Kinessis:PutRecord",
+      "Resource": "stream ARN"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource":"CWLtoKinesisRole ARN" 
+    }
+  ]
+}
+```
+
+```bash
+aws iam put-role-policy --role-name "CWLtoKinesisRole"    
+    --policy-name "Permission-Policy-for-CWL"
+    --policy-document file://path/to/policy.json
+```
+
+* Create Subscription filter
+```bash
+aws logs put-subscription-filter --log-group-name "my-lg"
+    --filter-name "my-filter"
+    --filter-pattern "Invalid User"
+    --destination-arn "arn:aws:kinesis:ap-southeast-2:1111111:stream/AlarmsLogs"
+    --role-arn "arn:aws:iam:ap-southeast-2:111111:role/CWLtoKinesisRole"
+```
