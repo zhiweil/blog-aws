@@ -231,11 +231,11 @@ aws iam create-role --role-name "CWLtoKinesisRole"
 }
 ```
 
-```bash
-aws iam put-role-policy --role-name "CWLtoKinesisRole"    
-    --policy-name "Permission-Policy-for-CWL"
-    --policy-document file://path/to/policy.json
-```
+    ```bash
+    aws iam put-role-policy --role-name "CWLtoKinesisRole"    
+        --policy-name "Permission-Policy-for-CWL"
+        --policy-document file://path/to/policy.json
+    ```
 
 * Create Subscription filter
 ```bash
@@ -245,3 +245,71 @@ aws logs put-subscription-filter --log-group-name "my-lg"
     --destination-arn "arn:aws:kinesis:ap-southeast-2:1111111:stream/AlarmsLogs"
     --role-arn "arn:aws:iam:ap-southeast-2:111111:role/CWLtoKinesisRole"
 ```
+
+* The following kinesis commands allow you to view the content of a Kinesis stream
+
+    ```bash
+    aws kinesis get-shard-iterator --stream-name AlarmsLogs    
+        --shard-id shardId-000000000000
+        --shard-iterator-type TRIM_HORIZON
+        
+    # This command returns records (the "data" field of JSON response) is BASE64 encoded and zipped format
+    # copy the "data" field into another file named result-encoded-data.txt
+    aws kinesis get-records --limit 10
+        --shard-iterator "<SHARD-ITERATOR-GOT-IN-PRECIOUS-COMMAND" > result.txt
+    # decode data
+    echo -n `cat result-encoded-data.txt` |  base64 -d | zcat > result-unzipped.txt
+    ```
+
+## CloudTrail
+CloudTrail is an AWS services which records all you AWS API calls and put them into CloudWatch logs. The logs contain:
+* The identity of who made the API call.
+* The time of the API call.
+* The source IP of the call.
+* The request parameters.
+* The response elements returned by the AWS serice.
+
+### Purposes
+* Enable security analysis
+* Track changes to AWS account
+* provide compliance auditing
+
+### Types
+* All regions - This is the default. This records the log files in each region and puts all the log files into one 
+    S3 bucket and a single log group.
+* One region - You specify a S3 bucket just for one region. 
+
+### Storage
+* Log files are stored in S3 using Server Side Encryption (SSE). 
+* You can store your logs for as long as you like, or use S3 lifecycle rules to archive or delete logs automatically.
+* Logs are delivered within 15 minutes of an API call being made.
+* New log files are being published every 5 minutes.
+
+### Notes
+* CloudTrail records the API calls made by a user or on behalf of a user by a AWS service.
+* There is an "invokedBy" field in the CloudTrail event you can use to see what triggered the API call. 
+
+## CloudWatch Events
+* This is a fairly new service. 
+* Similar to CloudTrail, but FASTER.
+* Central nervous system of AWS
+* Near real time stream of events
+* Route evetns to Lambda, Kinesis, SNS streams and other defined targets.
+
+### Main Components
+* Events themselves, which are small pieces of JSON. They are created in three ways:
+    * State change - when an AWS resource changes state, such as an EC2 instance changing from pending to running or 
+        when autoscaling creates or shuts down an instance.
+    * API call - when an API call is made that is delivered to cloudwatch events via cloudtrail.
+    * Your won code - when you own code generates an application level event, which you publish for processing. 
+* Rules
+    * these matches the incoming events and route them to one or more targets for processing. 
+    * rules are not ordered, all rules that match an event will be processed. 
+    * Rules can customise the JSON that flows to the target and elect to pass only certain keys and values, or to pass 
+        a literal string. 
+* Targets - receives event data in JSON format
+    * Lambda functions
+    * Kinesis streams
+    * SNS topics
+    * built-in
+    
