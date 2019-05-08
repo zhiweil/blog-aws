@@ -97,6 +97,9 @@ entries:
           - title: CloudWatch
             url: /devops_cloudwatch.html
             output: web, pdf
+          - title: Security/Governance/Validation
+            url: /devops_security_governance_validation.html
+            output: web, pdf
 
   - title: Keycloak
     output: web, pdf
