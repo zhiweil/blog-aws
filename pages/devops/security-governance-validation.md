@@ -146,3 +146,66 @@ The benefits of this approach:
 * It simplifies access control via roles. 
 * It improves security, no permanent credentials stored in your applications.
 * Using web identity federation and Cognito also provides user state syncing. 
+
+### Standard Web Identity Federation
+The is before Cognito.
+1. Mobile user authenticates itself with a Web Identity Provider (Google, Facebook or any other OpenID connection provider). 
+2. Web identity provider returns authenticated identity to mobile user (likely a token).
+3. Mobile user presents the received token to STS by STS:AssumeRole.
+4. STS verifies the token with web identity provider.
+5. If validation succeeds, STS checks role by TrustPolicy (or any other checking such as IP addresses). 
+6. STS returns AWS credentials to mobile user
+7. Mobile user accesses AWS resources by the returned credentials
+
+### Cognito
+* Cognito is an identity management and sync service.
+* Two product streams:
+    * Cognito Identity
+    * Cognito Sync
+* Cognito introduces the concept of an identity pool:
+    * A cognito identity pool is a collection of identities, it allows grouping of identities from different providers as a single entity.
+    * It allows identities to persist across devices.
+    * it allows two roles to be associated, one for users authenticated by a public IdP such as Google etc; another role can provide permissions for un-authenticated users, 
+        i.e guests.
+        
+    
+#### Cognito Unauthenticated Flow
+1. Mobile user creates unauthenticated identity with Cognito.
+2. Cognito responds with an OpenID token.
+3. Mobile user calls STS:AssumeRole 
+4. STS verifies the token with Cognito, if succeeds STS assumes a "GuestRole".
+5. STS responds with AWS credentials. 
+6. Mobile user then uses the credentials to access AWS resources.
+
+#### Authenticated Identities
+* Cognito can orchestrate the generate of an unauthenticated identity.
+* Cognito can merge that identity into an authenticated identity if both are provided.
+* Cognito can merge multiple identities into one object if all are provided (google, facebook etc).
+* When the ID's are merged - any synced data is also merged. 
+
+##### Authenticated Identities - Classic
+1. Mobile user logs in to web identity provider (google etc)
+2. Get or Create identity with Cognito
+3. Cognito responds with an OpenID token
+4. Mobile user then calls STS:AssumeRole
+5. STS checks the token with Cognito
+6. AWS returns credentials (STS)
+7. Mobile user then uses the credentials to access AWS resources
+
+##### Authenticated Identities - Enhanced/Simplified
+Steps are reduced and Cognito will orchestrate much of the process.
+1. Mobile user logs in to web identity provider
+2. Get or Create identity with Cognito
+2a. Cognito validates the token with web identity provider (google etc)
+3. on success, Cognito returns an authenticated ID
+3a. Cognito get credentials from web identity provider and asks STS to generate credentials.
+4. Cognito returns AWS credentials to Mobile user
+5. Mobile user uses the returned credentials to access AWS resources.
+
+
+### Summary
+* There is a pre-cognito auth flow
+* There is the unauthenticated or guest flow
+* There is the simple(classic) cognito flow
+* The is the enhanced (simplified) cognito flow
+* understand at a conceptual level when and why to use web identity federation.
