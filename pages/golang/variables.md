@@ -1,5 +1,5 @@
 ---
-title: Go
+title: Variables
 tags: [golang]
 keywords: Go
 last_updated: June 23, 2019
