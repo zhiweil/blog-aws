@@ -247,6 +247,11 @@ entries:
         url: /golang_constants.html
         output: web, pdf
 
+      - title: Array and Slice
+        output: web, pdf
+        url: /golang_array_and_slice.html
+        output: web, pdf
+
   - title: Linux Shell Commands
     output: web, pdf
     folderitems:
