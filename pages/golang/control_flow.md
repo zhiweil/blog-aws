@@ -58,3 +58,24 @@ folder: golang
             statements
     }
     ```
+    
+## Defer
+* Used to dealy execution of a statement until function exits.
+* Useful to group "open" and "close" functions together
+    * be careful in loops (better not to defer)
+* Run in LIFO (last-in, first-out) order
+* Arguments evaluated at the time fefer is executed, no at time of called function execution
+
+## Panic
+* Occur when program cannot continue at all
+    * Don't use when file can't be opened, ,unless it is critial
+    * Use for unrecoverable events - cannot obtain TCP port for web server
+* Function will stop executing
+    * Deferred functions will still fire
+* If nothing handles panic, program will exit
+
+## Recover
+* Used to recover from panics
+* Only useful in deferred functions
+* Current function will not attemp to continue, but higher funcitons in call stack will
+

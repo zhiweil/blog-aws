@@ -262,6 +262,21 @@ entries:
         url: /golang_control_flow.html
         output: web, pdf
 
+      - title: Looping
+        output: web, pdf
+        url: /golang_looping.html
+        output: web, pdf
+
+      - title: Pointer
+        output: web, pdf
+        url: /golang_pointer.html
+        output: web, pdf
+
+      - title: Function
+        output: web, pdf
+        url: /golang_function.html
+        output: web, pdf
+
   - title: Linux Shell Commands
     output: web, pdf
     folderitems:
