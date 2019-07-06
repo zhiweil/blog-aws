@@ -5,7 +5,7 @@ entries:
   product: Categories
   version: 
   folders:
-          
+
   - title:
     output: pdf
     type: frontmatter
@@ -280,6 +280,16 @@ entries:
       - title: Interface
         output: web, pdf
         url: /golang_interface.html
+        output: web, pdf
+
+      - title: Concurrency
+        output: web, pdf
+        url: /golang_concurrency.html
+        output: web, pdf
+
+      - title: Channel
+        output: web, pdf
+        url: /golang_channel.html
         output: web, pdf
 
   - title: Linux Shell Commands
