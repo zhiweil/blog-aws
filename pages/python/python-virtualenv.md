@@ -29,6 +29,11 @@ pip install virtualenv --user
 # event here is a directory which holds a Python virtual envrionment, it is
 # isolated from the other environments
 virtualenv ENV
+
+# create virtual env for specific version of Python
+which python3
+
+virtualenv -p /path/to/python myproject
 ```
 
 * To activate and deactivate a Python virtual environment
