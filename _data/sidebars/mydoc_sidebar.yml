@@ -296,6 +296,11 @@ entries:
     output: web, pdf
     folderitems:
 
+      - title: Module
+        output: web, pdf
+        url: /nodejs_module.html
+        output: web, pdf
+
       - title: Event Driven
         output: web, pdf
         url: /nodejs_event.html
@@ -324,6 +329,20 @@ entries:
       - title: Express Package
         output: web, pdf
         url: /nodejs_express.html
+        output: web, pdf
+
+  - title: Javascript
+    output: web, pdf
+    folderitems:
+
+      - title: Basics
+        output: web, pdf
+        url: /javascript_basics.html
+        output: web, pdf
+
+      - title: ES6/7/8
+        output: web, pdf
+        url: /javascript_es6.html
         output: web, pdf
 
   - title: Linux Shell Commands
