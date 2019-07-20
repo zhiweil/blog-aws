@@ -129,7 +129,7 @@ print(myset)
 * clean() - remove all elements from set.
 * intersetion(setb) - common elements from both sets.
 * union(setb) - all elements from both sets.
-* 
+
 ## Dictionary
 ### Basics
 Dictionary is key value pair. Dictionary is defined by curly braces. It is very much like JSON definition.
