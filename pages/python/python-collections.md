@@ -61,6 +61,7 @@ enclosed by square backets, which is the representation of python list.
 * [expr for val in collection if <test>]
 * [expr for val in collection if <test1> and <test2>]
 * [expr for val in collection1 for val2 in collection2]
+
 ```text
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -84,7 +85,9 @@ print(multiplied_nums)
 ```
 
 ## Tuple
+
 Tuple is like list, but it is immutable.
+
 * parenthesis are used to define tuple. 
 * methods: 
     * count(element) - count the times of occurrence of an element in tuple.
