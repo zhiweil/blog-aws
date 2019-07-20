@@ -136,16 +136,13 @@ people = {
     "age": 50, 
     "isOld": True
 }
-
 -- to reference a dictionary entry
 people["name"]
-
 -- python returns "None" if key does not exist
 people["no-such-key"]
 python
 -- use the get() method of dictionary, you can specify the default value if key does not exit
 people.get("no-such-key", "default-value")
-
 -- use assignment operator to change value or put a new key-value pair into dictionary
 people["new-key"] = "new-key's value"
 ```
