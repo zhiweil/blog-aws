@@ -36,7 +36,7 @@ matrix = [
         [7, 8, 9]
     ]
     
-# 2D array elements can be accessed by index. The following gives you number 1
+-- 2D array elements can be accessed by index. The following gives you number 1
 matrix[0][0]
 ```
 
@@ -64,19 +64,19 @@ enclosed by square backets, which is the representation of python list.
 ```text
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-# square of all numbers
+-- square of all numbers
 squares = [val**2 for val in nums]
 print(squares)
 
-# square of all odd numbers
+-- square of all odd numbers
 square_odds = [val**2 for val in nums if val%2]
 print(square_odds)
 
-# square of all even numbers and the numbers are greater than 5
+-- square of all even numbers and the numbers are greater than 5
 square_evens = [val**2 for val in nums if not val%2 and val > 5]
 print(square_evens)
 
-# multiply of two lists
+-- multiply of two lists
 nums_1 = [3, 2, 1]
 nums_2 = [4, 5, 6]
 multiplied_nums = [val1*val2 for val1 in nums_1 for val2 in nums_2]
@@ -94,8 +94,8 @@ Tuple is like list, but it is immutable.
 ```text
 tuple = (1, 2, 3)
 
-# unpacking a tuple
-# the following is the same as x = typle[0], y = typle[1], z = tuple[2]
+-- unpacking a tuple
+-- the following is the same as x = typle[0], y = typle[1], z = tuple[2]
 x, y, z = tuple
 ```
 Unpacking can be applied to tuple and list.
@@ -104,17 +104,17 @@ Unpacking can be applied to tuple and list.
 ### Basics
 Set is builtin data type in python, which is an unsorted list of unique items. 
 ```text
-# create set by constructor
+-- create set by constructor
 myset = set()
 myset.add(10)
 myset.add(False)
 myset.add('word')
 print(myset)
 
-# create set by pre-populated list
+-- create set by pre-populated list
 myset = set([10, False, 'word'])
 
-# create set by assigning values
+-- create set by assigning values
 myset = {10, False, 'word'}
 print(myset)
 ```
@@ -137,15 +137,15 @@ people = {
     "isOld": True
 }
 
-# to reference a dictionary entry
+-- to reference a dictionary entry
 people["name"]
 
-# python returns "None" if key does not exist
+-- python returns "None" if key does not exist
 people["no-such-key"]
-
-# use the get() method of dictionary, you can specify the default value if key does not exit
+python
+-- use the get() method of dictionary, you can specify the default value if key does not exit
 people.get("no-such-key", "default-value")
 
-# use assignment operator to change value or put a new key-value pair into dictionary
+-- use assignment operator to change value or put a new key-value pair into dictionary
 people["new-key"] = "new-key's value"
 ```
