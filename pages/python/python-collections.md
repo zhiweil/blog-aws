@@ -12,24 +12,24 @@ folder: python
 ## List
 ### Basics
 * use square brackets to define list such as
-    ```python
+    ```text
     [element1, element2, ...]
     ```
 * use array style to access each element such as list[index]. the "index" value can be negative.
 * A slice of list by:
-    ```python
+    ```text
     list[start-index:end-index]
     ``` 
     * end-index is not included
     * both start-index and end-index can be ignored, like string acess. 
     * this slice does not change the original list, it creates a new list.
 * elements of list can be changed.
-    ```python
+    ```text
     list[0] = "newvalue"
     ```
     
 ### 2D list
-```python
+```text
 matrix = [
         [1, 2, 3], 
         [4, 5, 6], 
