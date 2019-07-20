@@ -23,7 +23,7 @@ folder: python
     
 ## Fomatting
 * "+" - concatenation - suit for simple cases.
-* f'string {var} string' - pre-formatted string. Curly braces are used to enclose variables.
+* f'string {var} string' (after 3.6) - pre-formatted string. Curly braces are used to enclose variables.
 * "*" - repetition - can repeat string several times like:
     ```python
     "string to be repeated" * 10

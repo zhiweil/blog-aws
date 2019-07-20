@@ -25,6 +25,9 @@ There are two arithmetic types in python: integer (those numbers without decimal
 5. brackets can change the order of operations.
 
 ## Math functions
+```python
+import math
+```
 The following are built-in functions
 * round() - round a float number to integer.
 * abs() - absolute value.

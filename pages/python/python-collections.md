@@ -61,7 +61,7 @@ enclosed by square backets, which is the representation of python list.
 * [expr for val in collection if <test>]
 * [expr for val in collection if <test1> and <test2>]
 * [expr for val in collection1 for val2 in collection2]
-```python
+```text
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # square of all numbers
@@ -91,7 +91,7 @@ Tuple is like list, but it is immutable.
     * index(element) - return the index of the first occurrence of element.
     
 ## unpacking 
-```python
+```text
 tuple = (1, 2, 3)
 
 # unpacking a tuple
@@ -103,7 +103,7 @@ Unpacking can be applied to tuple and list.
 ## Set
 ### Basics
 Set is builtin data type in python, which is an unsorted list of unique items. 
-```python
+```text
 # create set by constructor
 myset = set()
 myset.add(10)
@@ -130,7 +130,7 @@ print(myset)
 ## Dictionary
 ### Basics
 Dictionary is key value pair. Dictionary is defined by curly braces. It is very much like JSON definition.
-```python
+```text
 people = {
     "name": "Zhiwei Liu",
     "age": 50, 
